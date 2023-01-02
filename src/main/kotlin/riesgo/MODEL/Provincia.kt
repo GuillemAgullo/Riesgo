@@ -1,3 +1,7 @@
+package riesgo.MODEL
+
+import riesgo.CONTROLLER.Jugador
+
 class Provincia(
     val nom: String
 ) {
