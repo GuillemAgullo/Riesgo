@@ -28,86 +28,86 @@ fun FaseExploracioTorns(Jugadorquelitoca: Jugador, Provinciaescollida: String){
     val Andalucia = Mapa.provincies.find { it.nom == "Andalucía" }
     val Islas_Canarias = Mapa.provincies.find { it.nom == "Islas_Canarias" }
     val Ses_illes_balears = Mapa.provincies.find { it.nom == "Ses_illes_balears" }
-    if (Provinciaescollida == "cataluña"){
+    if (Provinciaescollida == "CATALUNYA"){
         Catalunya?.numSoldats = Catalunya?.numSoldats?.plus(1)!!
         Catalunya.propietari = Jugadorquelitoca
         Catalunya.color = Jugadorquelitoca.color
-    } else if (Provinciaescollida == "galicia"){
+    } else if (Provinciaescollida == "GALÍCIA"){
         Mapa.Galicia?.numSoldats = Mapa.Galicia?.numSoldats?.plus(1)!!
         Mapa.Galicia.propietari = Jugadorquelitoca
         Mapa.Galicia.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    } else if (Provinciaescollida == "Asturias"){
+    } else if (Provinciaescollida == "ASTÚRIAS"){
         Mapa.Asturias?.numSoldats = Mapa.Asturias?.numSoldats?.plus(1)!!
         Mapa.Asturias.propietari = Jugadorquelitoca
         Mapa.Asturias.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    } else if (Provinciaescollida == "cantabria"){
+    } else if (Provinciaescollida == "CANTÁBRIA"){
         Mapa.Cantabria?.numSoldats = Mapa.Cantabria?.numSoldats?.plus(1)!!
         Mapa.Cantabria.propietari = Jugadorquelitoca
         Mapa.Cantabria.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "euskal herria"){
+    }else if (Provinciaescollida == "EUSKAL HERRIA"){
         Mapa.Euskal_Herria?.numSoldats = Mapa.Euskal_Herria?.numSoldats?.plus(1)!!
         Mapa.Euskal_Herria.propietari = Jugadorquelitoca
         Mapa.Euskal_Herria.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "navarra"){
+    }else if (Provinciaescollida == "NAVARRA"){
         Mapa.Euskal_Herria?.numSoldats = Mapa.Euskal_Herria?.numSoldats?.plus(1)!!
         Mapa.Euskal_Herria.propietari = Jugadorquelitoca
         Mapa.Euskal_Herria.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "la rioja"){
+    }else if (Provinciaescollida == "LA RIOJA"){
         Mapa.La_Rioja?.numSoldats = Mapa.La_Rioja?.numSoldats?.plus(1)!!
         Mapa.La_Rioja.propietari = Jugadorquelitoca
         Mapa.La_Rioja.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "Zaragoza"){
+    }else if (Provinciaescollida == "ZARAGOZA"){
         Mapa.Zaragoza?.numSoldats = Mapa.Zaragoza?.numSoldats?.plus(1)!!
         Mapa.Zaragoza.propietari = Jugadorquelitoca
         Mapa.Zaragoza.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "castilla leon") {
+    }else if (Provinciaescollida == "CASTILLA LEÓN") {
         Mapa.Castilla_Leon?.numSoldats = Mapa.Castilla_Leon?.numSoldats?.plus(1)!!
         Mapa.Castilla_Leon.propietari = Jugadorquelitoca
         Mapa.Castilla_Leon.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "castlla la mancha") {
+    }else if (Provinciaescollida == "CASTILLA LA MANCHA") {
         Mapa.Castilla_la_mancha?.numSoldats = Mapa.Castilla_la_mancha?.numSoldats?.plus(1)!!
         Mapa.Castilla_la_mancha.propietari = Jugadorquelitoca
         Mapa.Castilla_la_mancha.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "madrid"){
+    }else if (Provinciaescollida == "MADRIZ"){
         Mapa.Madrid?.numSoldats = Mapa.Madrid?.numSoldats?.plus(1)!!
         Mapa.Madrid.propietari = Jugadorquelitoca
         Mapa.Madrid.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "valencia"){
+    }else if (Provinciaescollida == "VALÈNCIA"){
         Mapa.Valencia?.numSoldats = Mapa.Valencia?.numSoldats?.plus(1)!!
         Mapa.Valencia.propietari = Jugadorquelitoca
         Mapa.Valencia.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "extremadura"){
+    }else if (Provinciaescollida == "EXTREMADURA"){
         Mapa.Extremadura?.numSoldats = Mapa.Extremadura?.numSoldats?.plus(1)!!
         Mapa.Extremadura.propietari = Jugadorquelitoca
         Mapa.Extremadura.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "murcia"){
+    }else if (Provinciaescollida == "MÚRCIA"){
         Mapa.Murcia?.numSoldats = Mapa.Murcia?.numSoldats?.plus(1)!!
         Mapa.Murcia.propietari = Jugadorquelitoca
         Mapa.Murcia.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "andalucia"){
+    }else if (Provinciaescollida == "ANDALUCÍA"){
         Mapa.Andalucia?.numSoldats = Mapa.Andalucia?.numSoldats?.plus(1)!!
         Mapa.Andalucia.propietari = Jugadorquelitoca
         Mapa.Andalucia.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "islas baleares"){
+    }else if (Provinciaescollida == "SES ILLES BALEARS"){
         Mapa.Ses_illes_balears?.numSoldats = Mapa.Ses_illes_balears?.numSoldats?.plus(1)!!
         Mapa.Ses_illes_balears.propietari = Jugadorquelitoca
         Mapa.Ses_illes_balears.color = Jugadorquelitoca.color
         print(Mapa.asciimap)
-    }else if (Provinciaescollida == "islas canarias"){
+    }else if (Provinciaescollida == "ISLAS CANÁRIAS"){
         Mapa.Islas_Canarias?.numSoldats = Mapa.Islas_Canarias?.numSoldats?.plus(1)!!
         Mapa.Islas_Canarias.propietari = Jugadorquelitoca
         Mapa.Islas_Canarias.color = Jugadorquelitoca.color
