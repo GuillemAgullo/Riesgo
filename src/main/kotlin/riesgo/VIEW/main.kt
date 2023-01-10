@@ -59,19 +59,25 @@ fun main() {
 
         Thread.sleep(3000)
         println(Mapa.asciimapMain)
-        while (true){
+        var switchTornsExploracio = true
+        while (switchTornsExploracio){
 
-            println("\nTorn de ${Jugador1.nom}")
+            println("\nTorn de ${Jugador1.nom}. Exèrcit:${Jugador1.numSoldats}")
             println("\nQuina província vols explorar?(Recorda que has d'escriure el nom just com està al mapa)")
             val MapaupdatedJ1 = Mapa.FaseExploracioTorns(Jugador1, readln(), Jugador1.color!!)
             print(MapaupdatedJ1)
             print("\n")
 
-            println("\nTorn de ${Jugador2.nom}")
+            println("\nTorn de ${Jugador2.nom}. Exèrcit:${Jugador2.numSoldats}")
             println("\nQuina província vols explorar?(Recorda que has d'escriure el nom just com està al mapa)")
             val MapaupdatedJ2 = Mapa.FaseExploracioTorns(Jugador2, readln(), Jugador2.color!!)
             print(MapaupdatedJ2)
             print("\n")
+
+            if (MapaupdatedJ1 == "Fase d'exploració acabada." || MapaupdatedJ2 == "Fase d'exploració acabada."){
+                Thread.sleep(4000)
+                switchTornsExploracio = false
+            }
         }
 
 
