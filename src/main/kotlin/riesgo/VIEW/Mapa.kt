@@ -122,7 +122,7 @@ class Mapa() {
         Andalucia.veins.add(Islas_Canarias)
 
     }
-
+    //IMPRIMIM EL MAPA PER PRIMERA VEGADA AMB ELS SOLDATS (QUE TOTS SÓN 0).
     val Madrid = provincies.find { it.nom == "Madrid" }
     val Catalunya = provincies.find { it.nom == "Catalunya" }
     val Zaragoza = provincies.find { it.nom == "Zaragoza" }
@@ -198,8 +198,8 @@ class Mapa() {
             "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
             "@@@@@,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
-    //AQUÍ CREARÉM LES VARIABLES QUE DEFINEIXEN QUANTS SOLDATS TÉ CADA ZONA.
-    fun FaseExploracioTorns(Jugador: Jugador, Provincia: String, Color: Int): String {
+    //AQUÍ CREARÉM LA FUNCIÓ DELS TORNS DE LA FASE D'EXPLORACIÓ.
+    fun FaseExploracioTorns(Jugador: Jugador, Provincia: String,): String {
         val Madrid = provincies.find { it.nom == "Madrid" }
         val Catalunya = provincies.find { it.nom == "Catalunya" }
         val Zaragoza = provincies.find { it.nom == "Zaragoza" }
@@ -218,7 +218,7 @@ class Mapa() {
         val Islas_Canarias = provincies.find { it.nom == "Islas_Canarias" }
         val Ses_illes_balears = provincies.find { it.nom == "Ses_illes_balears" }
 
-
+        //SI LA PROVÍNCIA COINCIDEIX AMB ALGUNA DE LES VARIABLES DE DALT HI HA UNA SERIE DE NORMES QUE ES COMPLIRÁN
         if (Provincia == "MADRIZ") {
             Madrid!!.numSoldats += 1
             Jugador.numSoldats -= 1
@@ -549,15 +549,19 @@ class Mapa() {
                 Ses_illes_balears.color = Jugador.color
 
             }
+        //SI PROVÍNCIA NO COINCIDEIX AMB CAP VARIABLE, SURT UN MISSATGE QUE DIU QUE NO EXISTEIX LA PROVÍNCIA INSERTADA
         }else {
             println("Aquesta província no existeix")
             Thread.sleep(4000)
         }
+
+        //SI TOTES LES PROVÍNCIES TENEN UN SOLDAT, S'EXECUTA AQUESTA FRASE QUE SERÀ ANALITZADA A MAIN I TANCARÀ EL BUCLE WHILE DELS TORNS DE LA FASE DEXPLORACIÓ DE MAIN
         if (Madrid!!.numSoldats == 1 && Catalunya!!.numSoldats == 1 && Zaragoza!!.numSoldats == 1 && Navarra!!.numSoldats == 1 && La_Rioja!!.numSoldats == 1 && Euskal_Herria!!.numSoldats == 1 && Cantabria!!.numSoldats == 1 && Asturias!!.numSoldats == 1 && Galicia!!.numSoldats == 1 && Castilla_Leon!!.numSoldats == 1 && Castilla_la_mancha!!.numSoldats == 1 && Extremadura!!.numSoldats == 1 && Murcia!!.numSoldats == 1 && Valencia!!.numSoldats == 1 && Andalucia!!.numSoldats == 1 && Islas_Canarias!!.numSoldats == 1 && Ses_illes_balears!!.numSoldats == 1) {
 
             return "Fase d'exploració acabada."
 
         }
+        // RETORNEM LA STRING DEL MAPA ACTUALITZAT AMB ELS CANVIS QUE S'HAN PRODUÏT
         val asciimapExploracio: String = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,|.....ASTÚRIAS....%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
