@@ -1,12 +1,12 @@
-package riesgo.VIEW
+package riesgo.view
 
-import riesgo.MODEL.Jugador
-import riesgo.MODEL.Provincia
+import riesgo.model.Jugador
+import riesgo.model.Provincia
 import java.lang.IllegalStateException
 
-class mapa() {
+class Mapa {
     //DINTRE DE LA CLASSE MAPA I DE LA VARIABLE PROVINCIES(QUE ES DE "MAPA"), INTRODUÏM TOTES LES PROVÍNCIES QUE TINGUI EL TERRENY UTILITZANT LA CLASSE PROVÍNCIA
-    val provincies: List<Provincia> = listOf(
+    private val provincies: List<Provincia> = listOf(
             Provincia("Madrid"),
             Provincia("Catalunya"),
             Provincia("Zaragoza"),
@@ -26,23 +26,23 @@ class mapa() {
             Provincia("Ses_illes_balears")
     )
 
-    val Madrid = provincies.find { it.nom == "Madrid" } ?: throw IllegalStateException("provincia no trobada")
-    val Catalunya = provincies.find { it.nom == "Catalunya" } ?: throw IllegalStateException("provincia no trobada")
-    val Zaragoza = provincies.find { it.nom == "Zaragoza" } ?: throw IllegalStateException("provincia no trobada")
-    val Euskal_Herria = provincies.find { it.nom == "Euskal_Herria" } ?: throw IllegalStateException("provincia no trobada")
-    val Navarra = provincies.find { it.nom == "Navarra" } ?: throw IllegalStateException("provincia no trobada")
-    val La_Rioja = provincies.find { it.nom == "La_Rioja" } ?: throw IllegalStateException("provincia no trobada")
-    val Cantabria = provincies.find { it.nom == "Cantábria" } ?: throw IllegalStateException("provincia no trobada")
-    val Asturias = provincies.find { it.nom == "Astúrias" } ?: throw IllegalStateException("provincia no trobada")
-    val Galicia = provincies.find { it.nom == "Galícia" } ?: throw IllegalStateException("provincia no trobada")
-    val Castilla_Leon = provincies.find { it.nom == "Castilla_León" } ?: throw IllegalStateException("provincia no trobada")
-    val Valencia = provincies.find { it.nom == "València" } ?: throw IllegalStateException("provincia no trobada")
-    val Castilla_la_mancha = provincies.find { it.nom == "Castilla_la_mancha" } ?: throw IllegalStateException("provincia no trobada")
-    val Extremadura = provincies.find { it.nom == "Extremadura" } ?: throw IllegalStateException("provincia no trobada")
-    val Murcia = provincies.find { it.nom == "Múrcia" } ?: throw IllegalStateException("provincia no trobada")
-    val Andalucia = provincies.find { it.nom == "Andalucía" } ?: throw IllegalStateException("provincia no trobada")
-    val Islas_Canarias = provincies.find { it.nom == "Islas_Canarias" } ?: throw IllegalStateException("provincia no trobada")
-    val Ses_illes_balears = provincies.find { it.nom == "Ses_illes_balears" } ?: throw IllegalStateException("provincia no trobada")
+    private val madrid = provincies.find { it.nom == "Madrid" } ?: throw IllegalStateException("provincia no trobada")
+    private val catalunya = provincies.find { it.nom == "Catalunya" } ?: throw IllegalStateException("provincia no trobada")
+    private val zaragoza = provincies.find { it.nom == "Zaragoza" } ?: throw IllegalStateException("provincia no trobada")
+    private val euskalHerria = provincies.find { it.nom == "Euskal_Herria" } ?: throw IllegalStateException("provincia no trobada")
+    private val navarra = provincies.find { it.nom == "Navarra" } ?: throw IllegalStateException("provincia no trobada")
+    private val laRioja = provincies.find { it.nom == "La_Rioja" } ?: throw IllegalStateException("provincia no trobada")
+    private val cantabria = provincies.find { it.nom == "Cantábria" } ?: throw IllegalStateException("provincia no trobada")
+    private val asturias = provincies.find { it.nom == "Astúrias" } ?: throw IllegalStateException("provincia no trobada")
+    private val galicia = provincies.find { it.nom == "Galícia" } ?: throw IllegalStateException("provincia no trobada")
+    private val castillaLeon = provincies.find { it.nom == "Castilla_León" } ?: throw IllegalStateException("provincia no trobada")
+    private val valencia = provincies.find { it.nom == "València" } ?: throw IllegalStateException("provincia no trobada")
+    private val castillaLaMancha = provincies.find { it.nom == "Castilla_la_mancha" } ?: throw IllegalStateException("provincia no trobada")
+    private val extremadura = provincies.find { it.nom == "Extremadura" } ?: throw IllegalStateException("provincia no trobada")
+    private val murcia = provincies.find { it.nom == "Múrcia" } ?: throw IllegalStateException("provincia no trobada")
+    private val andalucia = provincies.find { it.nom == "Andalucía" } ?: throw IllegalStateException("provincia no trobada")
+    private val islasCanarias = provincies.find { it.nom == "Islas_Canarias" } ?: throw IllegalStateException("provincia no trobada")
+    private val sesIllesBalears = provincies.find { it.nom == "Ses_illes_balears" } ?: throw IllegalStateException("provincia no trobada")
 
     //SEGUIDAMENT, INICIEM UNA FUNCIÓ QUE ES DIGUI INITADJECENTS
     init {
@@ -56,72 +56,72 @@ class mapa() {
 //AQUÍ AFEGIM ELS VEÏNS:
 
         //DE MADRID
-        Madrid.veins.add(Castilla_Leon)
-        Madrid.veins.add(Castilla_la_mancha)
+        madrid.veins.add(castillaLeon)
+        madrid.veins.add(castillaLaMancha)
         //DE EXTREMADURA
-        Extremadura.veins.add(Castilla_Leon)
-        Extremadura.veins.add(Castilla_la_mancha)
-        Extremadura.veins.add(Andalucia)
+        extremadura.veins.add(castillaLeon)
+        extremadura.veins.add(castillaLaMancha)
+        extremadura.veins.add(andalucia)
         //DE CATALUNYA
-        Catalunya.veins.add(Zaragoza)
-        Catalunya.veins.add(Valencia)
-        Catalunya.veins.add(Ses_illes_balears)
+        catalunya.veins.add(zaragoza)
+        catalunya.veins.add(valencia)
+        catalunya.veins.add(sesIllesBalears)
         //DE GALÍCIA
-        Galicia.veins.add(Asturias)
-        Galicia.veins.add(Castilla_Leon)
+        galicia.veins.add(asturias)
+        galicia.veins.add(castillaLeon)
         //DE CANTÁBRIA
-        Cantabria.veins.add(Euskal_Herria)
-        Cantabria.veins.add(Asturias)
-        Cantabria.veins.add(Castilla_Leon)
+        cantabria.veins.add(euskalHerria)
+        cantabria.veins.add(asturias)
+        cantabria.veins.add(castillaLeon)
         //DE EUSKAL HERRIA
-        Euskal_Herria.veins.add(Cantabria)
-        Euskal_Herria.veins.add(Navarra)
-        Euskal_Herria.veins.add(La_Rioja)
-        Euskal_Herria.veins.add(Castilla_Leon)
+        euskalHerria.veins.add(cantabria)
+        euskalHerria.veins.add(navarra)
+        euskalHerria.veins.add(laRioja)
+        euskalHerria.veins.add(castillaLeon)
         //DE ZARAGOZA
-        Zaragoza.veins.add(Catalunya)
-        Zaragoza.veins.add(Navarra)
-        Zaragoza.veins.add(La_Rioja)
-        Zaragoza.veins.add(Valencia)
-        Zaragoza.veins.add(Castilla_Leon)
-        Zaragoza.veins.add(Castilla_la_mancha)
+        zaragoza.veins.add(catalunya)
+        zaragoza.veins.add(navarra)
+        zaragoza.veins.add(laRioja)
+        zaragoza.veins.add(valencia)
+        zaragoza.veins.add(castillaLeon)
+        zaragoza.veins.add(castillaLaMancha)
         //DE NAVARRA
-        Navarra.veins.add(Euskal_Herria)
-        Navarra.veins.add(La_Rioja)
-        Navarra.veins.add(Zaragoza)
+        navarra.veins.add(euskalHerria)
+        navarra.veins.add(laRioja)
+        navarra.veins.add(zaragoza)
         //DE LA RIOJA
-        La_Rioja.veins.add(Castilla_Leon)
-        La_Rioja.veins.add(Zaragoza)
-        La_Rioja.veins.add(Navarra)
-        La_Rioja.veins.add(Euskal_Herria)
+        laRioja.veins.add(castillaLeon)
+        laRioja.veins.add(zaragoza)
+        laRioja.veins.add(navarra)
+        laRioja.veins.add(euskalHerria)
         //DE ASTURIES
-        Asturias.veins.add(Cantabria)
-        Asturias.veins.add(Castilla_Leon)
-        Asturias.veins.add(Galicia)
+        asturias.veins.add(cantabria)
+        asturias.veins.add(castillaLeon)
+        asturias.veins.add(galicia)
         //DE CASTILLA I LEÓN
-        Castilla_Leon.veins.add(Galicia)
-        Castilla_Leon.veins.add(Asturias)
-        Castilla_Leon.veins.add(Cantabria)
-        Castilla_Leon.veins.add(Euskal_Herria)
-        Castilla_Leon.veins.add(La_Rioja)
-        Castilla_Leon.veins.add(Zaragoza)
-        Castilla_Leon.veins.add(Madrid)
-        Castilla_Leon.veins.add(Extremadura)
+        castillaLeon.veins.add(galicia)
+        castillaLeon.veins.add(asturias)
+        castillaLeon.veins.add(cantabria)
+        castillaLeon.veins.add(euskalHerria)
+        castillaLeon.veins.add(laRioja)
+        castillaLeon.veins.add(zaragoza)
+        castillaLeon.veins.add(madrid)
+        castillaLeon.veins.add(extremadura)
         //DE VALENCIA
-        Valencia.veins.add(Catalunya)
-        Valencia.veins.add(Zaragoza)
-        Valencia.veins.add(Castilla_la_mancha)
-        Valencia.veins.add(Murcia)
-        Valencia.veins.add(Ses_illes_balears)
+        valencia.veins.add(catalunya)
+        valencia.veins.add(zaragoza)
+        valencia.veins.add(castillaLaMancha)
+        valencia.veins.add(murcia)
+        valencia.veins.add(sesIllesBalears)
         //DE MURCIA
-        Murcia.veins.add(Andalucia)
-        Murcia.veins.add(Valencia)
-        Murcia.veins.add(Castilla_la_mancha)
+        murcia.veins.add(andalucia)
+        murcia.veins.add(valencia)
+        murcia.veins.add(castillaLaMancha)
         //DE ANDALUCIA
-        Andalucia.veins.add(Murcia)
-        Andalucia.veins.add(Castilla_la_mancha)
-        Andalucia.veins.add(Extremadura)
-        Andalucia.veins.add(Islas_Canarias)
+        andalucia.veins.add(murcia)
+        andalucia.veins.add(castillaLaMancha)
+        andalucia.veins.add(extremadura)
+        andalucia.veins.add(islasCanarias)
 
     }
 
@@ -130,33 +130,33 @@ class mapa() {
         get() = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,|.....ASTÚRIAS....%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%,,,,,,,,,,,,,,,,,,,,|......${Asturias.numSoldats}..................|.,CANTÁBRIA,,,,).....@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,\\_________________.......|,,,${Cantabria.numSoldats},,,,,_____|...........|,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%,,,,,,,,,,,,,,,,,,,,|......${asturias.numSoldats}..................|.,CANTÁBRIA,,,,).....@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,\\_________________.......|,,,${cantabria.numSoldats},,,,,_____|...........|,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,|.................-------|-(,,,,,,)...EUSKAL HERRIA /.....@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&,,,,,,GALÍCIA,,,,,,,,,,|..........................(____)......${Euskal_Herria.numSoldats}..........|,,,NAVARRA,,,,|..@@@@@@@@@@@@@@..@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,${Galicia.numSoldats},,,,,,,,,,,,/..................................\\______..........|,,,,${Navarra.numSoldats},,,,,,,/.........@...@...|........@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&,,,,,,GALÍCIA,,,,,,,,,,|..........................(____)......${euskalHerria.numSoldats}..........|,,,NAVARRA,,,,|..@@@@@@@@@@@@@@..@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,${galicia.numSoldats},,,,,,,,,,,,/..................................\\______..........|,,,,${navarra.numSoldats},,,,,,,/.........@...@...|........@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/,@,,,,,,,,,,,,,,,,,,|.........................................|________/___________/....................|........@@@..@@@@@@@@@#....@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,\\........................................|....LA RIOJA......../.....................\\...........................@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,@@,,,,,,,,,,,,,/........................................\\....${La_Rioja.numSoldats}............../.......................|...........................@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,@@,,,,,,,,,,,,,/........................................\\....${laRioja.numSoldats}............../.......................|...........................@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,@@@@@@@,,,,,,,,,,,,,|............................................\\_./\\___/\\_____/........................|...........................@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@........CASTILLA LEÓN................................./......................../..........................@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,..........${Castilla_Leon.numSoldats}......................................./........................./.......CATALUNYA.......@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@...............................................|.......ZARAGOZA.........../...........${Catalunya.numSoldats}........@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................________________|.........${Zaragoza.numSoldats}.................\\.................,oo@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,..........${castillaLeon.numSoldats}......................................./........................./.......CATALUNYA.......@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@...............................................|.......ZARAGOZA.........../...........${catalunya.numSoldats}........@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................________________|.........${zaragoza.numSoldats}.................\\.................,oo@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................../\\................\\........................,/...........@@@@@@@@@@oo@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................../,,,|.................\\......................./.......@@@@@@@@@@@@@@@@@oo@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@................................/,,,,,\\..................\\......................|.....@@@@@@@@@@@@@@@@@@@@@oooooo@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@............................../,,,,,,,,\\...................\\...............____|.......@@@@@@@@@@@@@@@@@@@@@@@@@@ooooooo@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@............................/,,MADRIZ,,,\\...................\\............/,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--------______............/.....${Madrid.numSoldats}........\\..................|............|,,,,,,,,@@@@@@@@@@@@@@@@ SES ILLES BALEARS @@@@o@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,%|__________-----______,,,,,,\\..................\\......../,,,,,,,.,@@@@@@@@@@@@@@@@@@@@@@@ ${Ses_illes_balears.numSoldats} @@@@@@@@@@@@@@@..../@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--------______............/.....${madrid.numSoldats}........\\..................|............|,,,,,,,,@@@@@@@@@@@@@@@@ SES ILLES BALEARS @@@@o@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,%|__________-----______,,,,,,\\..................\\......../,,,,,,,.,@@@@@@@@@@@@@@@@@@@@@@@ ${sesIllesBalears.numSoldats} @@@@@@@@@@@@@@@..../@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,|....................----___\\.................|__,.../,,,,,,,,.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.@@@@@@@@@@@@(.\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,|_.............................................|____|,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@......#&.@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,|...........................................|,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/...........@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,|___....................................../,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.....%@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(,,,,,,,,,,,,,,,,,,,,,,,,,,,,|,...........CASTILLA LA MANCHA.......\\,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,EXTREMADURA,,,,,,,,,,|,.................${Castilla_la_mancha.numSoldats}.....................\\,VALÈNCIA,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,${Extremadura.numSoldats},,,,,,,,,,,,,,,,,|........................................../,,,,,,${Valencia.numSoldats},,,@@@@@@@@@@@oooooo...@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,EXTREMADURA,,,,,,,,,,|,.................${castillaLaMancha.numSoldats}.....................\\,VALÈNCIA,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,${extremadura.numSoldats},,,,,,,,,,,,,,,,,|........................................../,,,,,,${valencia.numSoldats},,,@@@@@@@@@@@oooooo...@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,|...........................................\\,,,,,,,,,,,@@@@@ooo@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,,,,,,,|............................................/,,,,,,,,,,,,,,ooo@@@@@@@@@@@.@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\___________.._____________..................\\,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
@@ -165,14 +165,14 @@ class mapa() {
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-------------____/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-----------___\\...|,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,|_____..............\\,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\....MÚRCIA....,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\...${Murcia.numSoldats}......@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\...${murcia.numSoldats}......@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,ANDALUCÍA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,${Andalucia.numSoldats},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,${andalucia.numSoldats},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@#,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@ ISLAS CANÁRIAS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@/,,,,,,,,,,,,,,,,,,,#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ${Islas_Canarias.numSoldats} @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@@@,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ${islasCanarias.numSoldats} @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@@@,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@oo@@@@@@@,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@oo@@@@@@@@@@@@@&,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,ooo@@@@@@@@@@@@@@@@@@@,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
@@ -184,23 +184,25 @@ class mapa() {
                 "@@@@@@@@@@@@@@,,,@@@@,,,,,@@@@@@@@@@(@@@@@@@@@@@@@@@@@,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-    private fun exploraProvincia(provincia: Provincia, jugador: Jugador) {
-       if (provincia.numSoldats == 0 && provincia.propietari == null){
-           provincia.numSoldats += 1
-           jugador.numSoldats -= 1
-           provincia.propietari = jugador
-           provincia.color = jugador.color
 
-       } else if (provincia.numSoldats > 1 && provincia.propietari == jugador) {
-           println("Només pots tenir un soldat per província en la fase d'exploració.")
-           provincia.numSoldats = 1
-           Thread.sleep(4000)
-       } else if (provincia.propietari != jugador && provincia.propietari != null){
-           println("Aquesta província no és teva campió.")
-           Thread.sleep(4000)
-       }
+    private fun exploraProvincia(provincia: Provincia, jugador: Jugador) {
+        if (provincia.numSoldats == 0 && provincia.propietari == null) {
+            provincia.numSoldats += 1
+            jugador.numSoldats -= 1
+            provincia.propietari = jugador
+            provincia.color = jugador.color
+
+        } else if (provincia.numSoldats > 1 && provincia.propietari == jugador) {
+            println("Només pots tenir un soldat per província en la fase d'exploració.")
+            provincia.numSoldats = 1
+            Thread.sleep(4000)
+        } else if (provincia.propietari != jugador && provincia.propietari != null) {
+            println("Aquesta província no és teva campió.")
+            Thread.sleep(4000)
+        }
 
     }
+
     private fun colonitzaProvincia(provincia: Provincia, jugador: Jugador) {
 
         provincia.numSoldats += 1
@@ -212,36 +214,38 @@ class mapa() {
             Thread.sleep(4000)
         }
     }
-    private fun checkSoldatsProvincia(): Int{
+
+    private fun checkSoldatsProvincia(): Int {
         var soldatsTotals = 0
-        for (i in provincies){
-            soldatsTotals = soldatsTotals + i.numSoldats
+        for (i in provincies) {
+            soldatsTotals += i.numSoldats
         }
         return soldatsTotals
     }
+
     //AQUÍ CREARÉM LA FUNCIÓ DELS TORNS DE LA FASE D'EXPLORACIÓ.
-    fun FaseExploracioTorns(jugador: Jugador, provincia: String): String {
+    fun faseExploracioTorns(jugador: Jugador, provincia: String): String {
         //SI LA PROVÍNCIA COINCIDEIX AMB ALGUNA DE LES VARIABLES DE DALT HI HA UNA SERIE DE NORMES QUE ES COMPLIRÁN
 
 
         when (provincia) {
-            "MADRIZ" -> exploraProvincia(Madrid, jugador)
-            "CATALUNYA" -> exploraProvincia(Catalunya, jugador)
-            "ZARAGOZA" -> exploraProvincia(Zaragoza, jugador)
-            "EUSKAL HERRIA" -> exploraProvincia(Euskal_Herria, jugador)
-            "NAVARRA" -> exploraProvincia(Navarra, jugador)
-            "LA RIOJA" -> exploraProvincia(La_Rioja, jugador)
-            "CANTÁBRIA" -> exploraProvincia(Cantabria, jugador)
-            "ASTÚRIAS" -> exploraProvincia(Asturias, jugador)
-            "GALÍCIA" -> exploraProvincia(Galicia, jugador)
-            "CASTILLA LEÓN" -> exploraProvincia(Castilla_Leon, jugador)
-            "VALÈNCIA" -> exploraProvincia(Valencia, jugador)
-            "CASTILLA LA MANCHA" -> exploraProvincia(Castilla_la_mancha, jugador)
-            "EXTREMADURA" -> exploraProvincia(Extremadura, jugador)
-            "MÚRCIA" -> exploraProvincia(Murcia, jugador)
-            "ANDALUCÍA" -> exploraProvincia(Andalucia, jugador)
-            "ISLAS CANÁRIAS" -> exploraProvincia(Islas_Canarias, jugador)
-            "SES ILLES BALEARS" -> exploraProvincia(Ses_illes_balears, jugador)
+            "MADRIZ" -> exploraProvincia(madrid, jugador)
+            "CATALUNYA" -> exploraProvincia(catalunya, jugador)
+            "ZARAGOZA" -> exploraProvincia(zaragoza, jugador)
+            "EUSKAL HERRIA" -> exploraProvincia(euskalHerria, jugador)
+            "NAVARRA" -> exploraProvincia(navarra, jugador)
+            "LA RIOJA" -> exploraProvincia(laRioja, jugador)
+            "CANTÁBRIA" -> exploraProvincia(cantabria, jugador)
+            "ASTÚRIAS" -> exploraProvincia(asturias, jugador)
+            "GALÍCIA" -> exploraProvincia(galicia, jugador)
+            "CASTILLA LEÓN" -> exploraProvincia(castillaLeon, jugador)
+            "VALÈNCIA" -> exploraProvincia(valencia, jugador)
+            "CASTILLA LA MANCHA" -> exploraProvincia(castillaLaMancha, jugador)
+            "EXTREMADURA" -> exploraProvincia(extremadura, jugador)
+            "MÚRCIA" -> exploraProvincia(murcia, jugador)
+            "ANDALUCÍA" -> exploraProvincia(andalucia, jugador)
+            "ISLAS CANÁRIAS" -> exploraProvincia(islasCanarias, jugador)
+            "SES ILLES BALEARS" -> exploraProvincia(sesIllesBalears, jugador)
             //SI PROVÍNCIA NO COINCIDEIX AMB CAP VARIABLE, SURT UN MISSATGE QUE DIU QUE NO EXISTEIX LA PROVÍNCIA INSERTADA
             else -> {
                 println("Aquesta província no existeix")
@@ -250,31 +254,32 @@ class mapa() {
         }
         val soldatsTotalsExploracio = checkSoldatsProvincia()
         //SI TOTES LES PROVÍNCIES TENEN UN SOLDAT, S'EXECUTA AQUESTA FRASE QUE SERÀ ANALITZADA A MAIN I TANCARÀ EL BUCLE WHILE DELS TORNS DE LA FASE DEXPLORACIÓ DE MAIN
-        if (soldatsTotalsExploracio >= 17){
+        if (soldatsTotalsExploracio >= 17) {
             return "Fase d'exploració acabada."
 
         }
         return asciimapMain
     }
-    fun FaseColonitzacioTorns(jugador: Jugador, Provincia: String): String {
-        when (Provincia) {
-            "MADRIZ" -> colonitzaProvincia(Madrid, jugador)
-            "CATALUNYA" -> colonitzaProvincia(Catalunya, jugador)
-            "ZARAGOZA" -> colonitzaProvincia(Zaragoza, jugador)
-            "LA RIOJA" -> colonitzaProvincia(La_Rioja, jugador)
-            "CASTILLA LA MANCHA" -> colonitzaProvincia(Castilla_la_mancha, jugador)
-            "NAVARRA" -> colonitzaProvincia(Navarra, jugador)
-            "EUSKAL HERRIA" -> colonitzaProvincia(Euskal_Herria, jugador)
-            "CANTÁBRIA" -> colonitzaProvincia(Cantabria, jugador)
-            "VALÉNCIA" -> colonitzaProvincia(Valencia, jugador)
-            "CASTILLA LEÓN" -> colonitzaProvincia(Castilla_Leon, jugador)
-            "MÚRCIA" -> colonitzaProvincia(Murcia, jugador)
-            "EXTREMADURA" -> colonitzaProvincia(Extremadura, jugador)
-            "ANDALUCÍA" -> colonitzaProvincia(Andalucia, jugador)
-            "SES ILLES BALEARS" -> colonitzaProvincia(Ses_illes_balears, jugador)
-            "ISLAS CANÁRIAS" -> colonitzaProvincia(Islas_Canarias, jugador)
-            "ASTÚRIAS" -> colonitzaProvincia(Asturias, jugador)
-            "GALÍCIA" -> colonitzaProvincia(Galicia, jugador)
+
+    fun faseColonitzacioTorns(jugador: Jugador, provincia: String): String {
+        when (provincia) {
+            "MADRIZ" -> colonitzaProvincia(madrid, jugador)
+            "CATALUNYA" -> colonitzaProvincia(catalunya, jugador)
+            "ZARAGOZA" -> colonitzaProvincia(zaragoza, jugador)
+            "LA RIOJA" -> colonitzaProvincia(laRioja, jugador)
+            "CASTILLA LA MANCHA" -> colonitzaProvincia(castillaLaMancha, jugador)
+            "NAVARRA" -> colonitzaProvincia(navarra, jugador)
+            "EUSKAL HERRIA" -> colonitzaProvincia(euskalHerria, jugador)
+            "CANTÁBRIA" -> colonitzaProvincia(cantabria, jugador)
+            "VALÉNCIA" -> colonitzaProvincia(valencia, jugador)
+            "CASTILLA LEÓN" -> colonitzaProvincia(castillaLeon, jugador)
+            "MÚRCIA" -> colonitzaProvincia(murcia, jugador)
+            "EXTREMADURA" -> colonitzaProvincia(extremadura, jugador)
+            "ANDALUCÍA" -> colonitzaProvincia(andalucia, jugador)
+            "SES ILLES BALEARS" -> colonitzaProvincia(sesIllesBalears, jugador)
+            "ISLAS CANÁRIAS" -> colonitzaProvincia(islasCanarias, jugador)
+            "ASTÚRIAS" -> colonitzaProvincia(asturias, jugador)
+            "GALÍCIA" -> colonitzaProvincia(galicia, jugador)
         }
 
         return asciimapMain

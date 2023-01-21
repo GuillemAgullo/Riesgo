@@ -1,4 +1,4 @@
-package riesgo.MODEL
+package riesgo.model
 //AQUESTA CLASSE CONTÉ LES VARIABLES QUE TÉ CADA PROVÍNCIA.
 
 class Provincia(

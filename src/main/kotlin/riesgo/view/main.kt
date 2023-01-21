@@ -1,12 +1,13 @@
-import riesgo.MODEL.Jugador
-import riesgo.VIEW.mapa
+package riesgo.view
+
+import riesgo.model.Jugador
 import java.io.FileDescriptor
 import java.io.FileOutputStream
 import java.io.PrintStream
 import java.nio.charset.StandardCharsets
 
 
-//Aquest arxiu és el main i és des d'on cridaré totes les clases de l'inici del joc fins que s'acabi
+//Aquest arxiu és el riesgo.view.main i és des d'on cridaré totes les clases de l'inici del joc fins que s'acabi
 //PRIMER CREEM LES VARIABLES GLOBALS PER ALS DOS JUGADORS
 val Jugador1 = Jugador()
 val Jugador2 = Jugador()
@@ -27,7 +28,7 @@ fun main() {
         System.setOut(PrintStream(FileOutputStream(FileDescriptor.out), true, StandardCharsets.UTF_8))
     }
     val fideljoc = true
-    val mapa = mapa()
+    val mapa = Mapa()
 
     //FEM UN BUCLE WHILE QUE SERÀ L'EXECUCIÓ DEL JOC EN SI.
     while (fideljoc) {
@@ -43,20 +44,20 @@ fun main() {
 
         //DEMANEM LES CREDENCIALS ALS JUGADORS. (NOM I COLOR)
         println("Nom del jugador 1: ")
-        Jugador1.nom = readLine() ?: "Unnamed1"
+        Jugador1.nom = readlnOrNull() ?: "Unnamed1"
         println("Color del jugador 1: ")
         println("LLEGENDA DE COLORS:")
         println("1-vermell, 2-verde que te quiero verde, 3-blau, 4-groc, 5-rosa que l'amor s'hi posa")
-        Jugador1.color = readLine() ?: ""
+        Jugador1.color = readlnOrNull() ?: ""
         Jugador1.numSoldats = 30
 
 
         println("Nom del jugador 2: ")
-        Jugador2.nom = readLine() ?: "Unnamed2"
+        Jugador2.nom = readlnOrNull() ?: "Unnamed2"
         println("Color del jugador 2: ")
         println("LLEGENDA DE COLORS:")
         println("1-vermell, 2-verde que te quiero verde, 3-blau, 4-groc, 5-rosa que l'amor s'hi posa")
-        Jugador2.color = readLine()?: ""
+        Jugador2.color = readlnOrNull() ?: ""
         Jugador2.numSoldats = 30
 
 
@@ -78,21 +79,21 @@ fun main() {
 
             println("\nTorn de ${Jugador1.nom}. ||Exèrcit:${Jugador1.numSoldats}||")
             println("\nQuina província vols explorar?(Recorda que has d'escriure el nom just com està al mapa)")
-            val MapaupdatedJ1 = mapa.FaseExploracioTorns(Jugador1, readln())
-            print(MapaupdatedJ1)
+            val mapaupdatedJ1 = mapa.faseExploracioTorns(Jugador1, readln())
+            print(mapaupdatedJ1)
             print("\n")
-            if (MapaupdatedJ1 == "Fase d'exploració acabada.") {
+            if (mapaupdatedJ1 == "Fase d'exploració acabada.") {
                 Thread.sleep(4000)
                 switchTornsExploracio = false
             }
 
             println("\nTorn de ${Jugador2.nom}. ||Exèrcit:${Jugador2.numSoldats}||")
             println("\nQuina província vols explorar?(Recorda que has d'escriure el nom just com està al mapa)")
-            val MapaupdatedJ2 = mapa.FaseExploracioTorns(Jugador2, readln())
-            print(MapaupdatedJ2)
+            val mapaupdatedJ2 = mapa.faseExploracioTorns(Jugador2, readln())
+            print(mapaupdatedJ2)
             print("\n")
             //QUAN LA FUNCIÓ FASEEXPLORACIÓ ENS RETORNA LA FRASE: FASE D'EXPLORACIÓ ACABADA, S'ACABA EL BUCLE.
-            if (MapaupdatedJ1 == "Fase d'exploració acabada." || MapaupdatedJ2 == "Fase d'exploració acabada.") {
+            if (mapaupdatedJ1 == "Fase d'exploració acabada." || mapaupdatedJ2 == "Fase d'exploració acabada.") {
                 Thread.sleep(4000)
                 switchTornsExploracio = false
             }
@@ -108,13 +109,13 @@ fun main() {
         while (switchTornsColonitzacio) {
             println("Torn de ${Jugador1.nom}. ||Exèrcit:${Jugador1.numSoldats}||")
             println("Quina província vols colonitzar?(recorda que has d'escriure-la igual que com està al mapa.\n")
-            val MapaupdatedColonitzacioJ1 = mapa.FaseColonitzacioTorns(Jugador1, readln())
-            println(MapaupdatedColonitzacioJ1)
+            val mapaupdatedColonitzacioJ1 = mapa.faseColonitzacioTorns(Jugador1, readln())
+            println(mapaupdatedColonitzacioJ1)
 
             println("Torn de ${Jugador2.nom}. ||Exèrcit:${Jugador2.numSoldats}||")
             println("Quina povíncia vols colonitzar?(recorda que has d'escriure-la igual que com està al mapa.\n")
-            val MapaupdatedColonitzacioJ2 = mapa.FaseColonitzacioTorns(Jugador2, readln())
-            println(MapaupdatedColonitzacioJ2)
+            val mapaupdatedColonitzacioJ2 = mapa.faseColonitzacioTorns(Jugador2, readln())
+            println(mapaupdatedColonitzacioJ2)
         }
 
 
