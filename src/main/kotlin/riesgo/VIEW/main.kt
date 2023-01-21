@@ -1,5 +1,10 @@
-import riesgo.CONTROLLER.Jugador
+import riesgo.MODEL.Jugador
 import riesgo.VIEW.mapa
+import java.io.FileDescriptor
+import java.io.FileOutputStream
+import java.io.PrintStream
+import java.nio.charset.StandardCharsets
+
 
 //Aquest arxiu és el main i és des d'on cridaré totes les clases de l'inici del joc fins que s'acabi
 //PRIMER CREEM LES VARIABLES GLOBALS PER ALS DOS JUGADORS
@@ -7,7 +12,7 @@ val Jugador1 = Jugador()
 val Jugador2 = Jugador()
 
 //FEM UNA FUNCIÓ PER A FER UN DIVERTIT I ENTRETINGUT EFECTE QUE ESCRIU UNA FRASE DONADA, PROGRESSIVAMENT.
-fun textGuai(frase: String) {
+fun textoFlama(frase: String) {
     print("\n")
     for (i in frase) {
         print("$i")
@@ -17,6 +22,10 @@ fun textGuai(frase: String) {
 }
 
 fun main() {
+    // Set the charset to UTF 8 to the Standard Output
+    if (System.out.charset() != StandardCharsets.UTF_8) {
+        System.setOut(PrintStream(FileOutputStream(FileDescriptor.out), true, StandardCharsets.UTF_8))
+    }
     val fideljoc = true
     val mapa = mapa()
 
@@ -24,7 +33,7 @@ fun main() {
     while (fideljoc) {
         print("\u001b[2J")
 
-//PRESENTEM EL JOC D'UNA MANERA AMENA I AGRADABLE A LA VISTA
+        //PRESENTEM EL JOC D'UNA MANERA AMENA I AGRADABLE A LA VISTA
         println("\n==========================================================================================")
         println("=============BENVINGUT A \"RIESGO\", EL RISK IBÈRIC=========================================")
         println("==========================================================================================")
@@ -56,7 +65,7 @@ fun main() {
         print("\n")
 
         //INICIEM LA FASE D'EXPLORACIÓ (1)
-        textGuai("Fase 1: Exploració")
+        textoFlama("Fase 1: Exploració")
         println("En aquesta fase, haureu de posar un soldat a cada província per torns.\n")
         Thread.sleep(3000)
 
@@ -89,7 +98,7 @@ fun main() {
             }
         }
         //INDIQUEM QUE INICIEM LA FASE 2: COLONITZACIÓ
-        textGuai("Fase 2: Colonització")
+        textoFlama("Fase 2: Colonització")
         print("\n En aquesta fase, colocareu els soldats restants en les províncies més convenients.\n")
         //CREEM EL BUCLE WHILE DELS TORNS DE LA SEGONA FASE.
 

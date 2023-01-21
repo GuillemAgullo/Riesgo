@@ -1,4 +1,4 @@
-package riesgo.CONTROLLER
+package riesgo.MODEL
 
 import riesgo.Colors
 

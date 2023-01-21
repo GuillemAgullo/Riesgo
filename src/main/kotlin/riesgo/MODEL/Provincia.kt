@@ -1,6 +1,5 @@
 package riesgo.MODEL
 //AQUESTA CLASSE CONTÉ LES VARIABLES QUE TÉ CADA PROVÍNCIA.
-import riesgo.CONTROLLER.Jugador
 
 class Provincia(
     val nom: String
