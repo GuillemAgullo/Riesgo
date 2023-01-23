@@ -6,7 +6,7 @@ import riesgo.Colors
 class Jugador {
     var nom: String? = "Hola"
     var numSoldats: Int = 40
-    var color: String = Colors.ANSI_BLUE
+    var color: String = Colors.ANSI_RESET
     val colorSoldats
         get() = color + numSoldats + Colors.ANSI_RESET
 

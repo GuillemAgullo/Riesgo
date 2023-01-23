@@ -1,5 +1,6 @@
 package riesgo.view
 
+import riesgo.Colors
 import riesgo.model.Jugador
 import java.io.FileDescriptor
 import java.io.FileOutputStream
@@ -48,7 +49,26 @@ fun main() {
         println("Color del jugador 1: ")
         println("LLEGENDA DE COLORS:")
         println("1-vermell, 2-verde que te quiero verde, 3-blau, 4-groc, 5-rosa que l'amor s'hi posa")
-        Jugador1.color = readlnOrNull() ?: ""
+        when (readln().toIntOrNull()) {
+            1 -> {
+                Jugador1.color = Colors.ANSI_RED
+            }
+            2 -> {
+                Jugador1.color = Colors.ANSI_GREEN
+            }
+            3 -> {
+                Jugador1.color = Colors.ANSI_BLUE
+            }
+            4 -> {
+                Jugador1.color = Colors.ANSI_YELLOW
+            }
+            5 -> {
+                Jugador1.color = Colors.ANSI_PURPLE
+            }
+            else -> {
+                Jugador1.color = Colors.ANSI_RED
+            }
+        }
         Jugador1.numSoldats = 30
 
 
@@ -57,7 +77,26 @@ fun main() {
         println("Color del jugador 2: ")
         println("LLEGENDA DE COLORS:")
         println("1-vermell, 2-verde que te quiero verde, 3-blau, 4-groc, 5-rosa que l'amor s'hi posa")
-        Jugador2.color = readlnOrNull() ?: ""
+        when (readln().toIntOrNull()) {
+            1 -> {
+                Jugador2.color = Colors.ANSI_RED
+            }
+            2 -> {
+                Jugador2.color = Colors.ANSI_GREEN
+            }
+            3 -> {
+                Jugador2.color = Colors.ANSI_BLUE
+            }
+            4 -> {
+                Jugador2.color = Colors.ANSI_YELLOW
+            }
+            5 -> {
+                Jugador2.color = Colors.ANSI_PURPLE
+            }
+            else -> {
+                Jugador2.color = Colors.ANSI_GREEN
+            }
+        }
         Jugador2.numSoldats = 30
 
 
@@ -77,7 +116,7 @@ fun main() {
         //ALS USUARIS DE QUÍ ÉS EL TORN I QUANS SOLDATS TÉ CADASCÚ
         while (switchTornsExploracio) {
 
-            println("\nTorn de ${Jugador1.nom}. ||Exèrcit:${Jugador1.numSoldats}||")
+            println("\nTorn de "+ Jugador1.color + Jugador1.nom + Colors.ANSI_RESET +". ||Exèrcit:${Jugador1.numSoldats}||")
             println("\nQuina província vols explorar?(Recorda que has d'escriure el nom just com està al mapa)")
             val mapaupdatedJ1 = mapa.faseExploracioTorns(Jugador1, readln())
             print(mapaupdatedJ1)
@@ -85,17 +124,19 @@ fun main() {
             if (mapaupdatedJ1 == "Fase d'exploració acabada.") {
                 Thread.sleep(4000)
                 switchTornsExploracio = false
+                continue
             }
 
-            println("\nTorn de ${Jugador2.nom}. ||Exèrcit:${Jugador2.numSoldats}||")
+            println("\nTorn de "+ Jugador2.color + Jugador2.nom + Colors.ANSI_RESET +". ||Exèrcit:${Jugador2.numSoldats}||")
             println("\nQuina província vols explorar?(Recorda que has d'escriure el nom just com està al mapa)")
             val mapaupdatedJ2 = mapa.faseExploracioTorns(Jugador2, readln())
             print(mapaupdatedJ2)
             print("\n")
             //QUAN LA FUNCIÓ FASEEXPLORACIÓ ENS RETORNA LA FRASE: FASE D'EXPLORACIÓ ACABADA, S'ACABA EL BUCLE.
-            if (mapaupdatedJ1 == "Fase d'exploració acabada." || mapaupdatedJ2 == "Fase d'exploració acabada.") {
+            if (mapaupdatedJ2 == "Fase d'exploració acabada.") {
                 Thread.sleep(4000)
                 switchTornsExploracio = false
+                continue
             }
         }
         //INDIQUEM QUE INICIEM LA FASE 2: COLONITZACIÓ
@@ -103,19 +144,33 @@ fun main() {
         print("\n En aquesta fase, colocareu els soldats restants en les províncies més convenients.\n")
         //CREEM EL BUCLE WHILE DELS TORNS DE LA SEGONA FASE.
 
-        val switchTornsColonitzacio = true
+        var switchTornsColonitzacio = true
         print(mapa.asciimapMain)
 
         while (switchTornsColonitzacio) {
-            println("Torn de ${Jugador1.nom}. ||Exèrcit:${Jugador1.numSoldats}||")
-            println("Quina província vols colonitzar?(recorda que has d'escriure-la igual que com està al mapa.\n")
-            val mapaupdatedColonitzacioJ1 = mapa.faseColonitzacioTorns(Jugador1, readln())
-            println(mapaupdatedColonitzacioJ1)
+            if (Jugador1.numSoldats > 0) {
+                println("\nTorn de "+ Jugador1.color + Jugador1.nom + Colors.ANSI_RESET +". ||Exèrcit:${Jugador1.numSoldats}||")
+                println("Quina província vols colonitzar?(recorda que has d'escriure-la igual que com està al mapa.\n")
+                val mapaupdatedColonitzacioJ1 = mapa.faseColonitzacioTorns(Jugador1, readln())
+                println(mapaupdatedColonitzacioJ1)
+                if (mapaupdatedColonitzacioJ1 == "Fase de colonització acabada.") {
+                    switchTornsColonitzacio = false
+                    Thread.sleep(4000)
+                    continue
+                }
+            }
+            if (Jugador2.numSoldats > 0) {
+                println("\nTorn de "+ Jugador2.color + Jugador2.nom + Colors.ANSI_RESET +". ||Exèrcit:${Jugador2.numSoldats}||")
+                println("Quina povíncia vols colonitzar?(recorda que has d'escriure-la igual que com està al mapa.\n")
+                val mapaupdatedColonitzacioJ2 = mapa.faseColonitzacioTorns(Jugador2, readln())
+                println(mapaupdatedColonitzacioJ2)
+                if (mapaupdatedColonitzacioJ2 == "Fase de colonització acabada.") {
+                    switchTornsColonitzacio = false
+                    Thread.sleep(4000)
+                    continue
+                }
+            }
 
-            println("Torn de ${Jugador2.nom}. ||Exèrcit:${Jugador2.numSoldats}||")
-            println("Quina povíncia vols colonitzar?(recorda que has d'escriure-la igual que com està al mapa.\n")
-            val mapaupdatedColonitzacioJ2 = mapa.faseColonitzacioTorns(Jugador2, readln())
-            println(mapaupdatedColonitzacioJ2)
         }
 
 

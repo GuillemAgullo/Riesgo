@@ -207,7 +207,7 @@ class Mapa {
 
         provincia.numSoldats += 1
         jugador.numSoldats -= 1
-        if (provincia.propietari != jugador) {
+        if (provincia.propietari != jugador && provincia.propietari != null) {
             provincia.numSoldats -= 1
             jugador.numSoldats += 1
             print("Aquesta província no es de la  teva posessió.")
@@ -280,6 +280,13 @@ class Mapa {
             "ISLAS CANÁRIAS" -> colonitzaProvincia(islasCanarias, jugador)
             "ASTÚRIAS" -> colonitzaProvincia(asturias, jugador)
             "GALÍCIA" -> colonitzaProvincia(galicia, jugador)
+            else -> {
+                println("Aquesta província no existeix")
+                Thread.sleep(4000)
+            }
+        }
+        if (Jugador1.numSoldats <= 0 && Jugador2.numSoldats <= 0){
+            return "Fase de colonització acabada."
         }
 
         return asciimapMain
