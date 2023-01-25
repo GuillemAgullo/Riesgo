@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets
 //PRIMER CREEM LES VARIABLES GLOBALS PER ALS DOS JUGADORS
 val Jugador1 = Jugador()
 val Jugador2 = Jugador()
+val Jugador0 = Jugador()
 
 //FEM UNA FUNCIÓ PER A FER UN DIVERTIT I ENTRETINGUT EFECTE QUE ESCRIU UNA FRASE DONADA, PROGRESSIVAMENT.
 fun textoFlama(frase: String) {
