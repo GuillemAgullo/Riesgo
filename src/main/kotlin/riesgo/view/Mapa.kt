@@ -7,7 +7,7 @@ import java.lang.IllegalStateException
 
 class Mapa {
     //DINTRE DE LA CLASSE MAPA I DE LA VARIABLE PROVINCIES(QUE ES DE "MAPA"), INTRODUÏM TOTES LES PROVÍNCIES QUE TINGUI EL TERRENY UTILITZANT LA CLASSE PROVÍNCIA
-    private val provincies: List<Provincia> = listOf(
+    val provincies: List<Provincia> = listOf(
             Provincia("Madrid"),
             Provincia("Catalunya"),
             Provincia("Zaragoza"),
@@ -131,33 +131,33 @@ class Mapa {
         get() = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,|.....ASTÚRIAS....%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%,,,,,,,,,,,,,,,,,,,,|......"+ asturias.propietari?.color + asturias.numSoldats + Colors.ANSI_RESET + "..................|.,CANTÁBRIA,,,,).....@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,\\_________________.......|,,,"+ cantabria.propietari?.color + cantabria.numSoldats + Colors.ANSI_RESET + ",,,,,_____|...........|,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%,,,,,,,,,,,,,,,,,,,,|......"+ asturias.propietari.color + asturias.numSoldats + Colors.ANSI_RESET + "..................|.,CANTÁBRIA,,,,).....@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,\\_________________.......|,,,"+ cantabria.propietari.color + cantabria.numSoldats + Colors.ANSI_RESET + ",,,,,_____|...........|,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,|.................-------|-(,,,,,,)...EUSKAL HERRIA /.....@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&,,,,,,GALÍCIA,,,,,,,,,,|..........................(____)......"+ euskalHerria.propietari?.color + euskalHerria.numSoldats + Colors.ANSI_RESET + "..........|,,,NAVARRA,,,,|..@@@@@@@@@@@@@@..@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,"+ galicia.propietari?.color + galicia.numSoldats + Colors.ANSI_RESET + ",,,,,,,,,,,,/..................................\\______..........|,,,,"+ navarra.propietari?.color + navarra.numSoldats + Colors.ANSI_RESET + ",,,,,,,/.........@...@...|........@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&,,,,,,GALÍCIA,,,,,,,,,,|..........................(____)......"+ euskalHerria.propietari.color + euskalHerria.numSoldats + Colors.ANSI_RESET + "..........|,,,NAVARRA,,,,|..@@@@@@@@@@@@@@..@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,"+ galicia.propietari.color + galicia.numSoldats + Colors.ANSI_RESET + ",,,,,,,,,,,,/..................................\\______..........|,,,,"+ navarra.propietari.color + navarra.numSoldats + Colors.ANSI_RESET + ",,,,,,,/.........@...@...|........@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/,@,,,,,,,,,,,,,,,,,,|.........................................|________/___________/....................|........@@@..@@@@@@@@@#....@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,\\........................................|....LA RIOJA......../.....................\\...........................@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,@@,,,,,,,,,,,,,/........................................\\...."+ laRioja.propietari?.color + laRioja.numSoldats + Colors.ANSI_RESET + "............../.......................|...........................@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,@@,,,,,,,,,,,,,/........................................\\...."+ laRioja.propietari.color + laRioja.numSoldats + Colors.ANSI_RESET + "............../.......................|...........................@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,@@@@@@@,,,,,,,,,,,,,|............................................\\_./\\___/\\_____/........................|...........................@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@........CASTILLA LEÓN................................./......................../..........................@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,.........."+ castillaLeon.propietari?.color + castillaLeon.numSoldats + Colors.ANSI_RESET + "......................................./........................./.......CATALUNYA.......@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@...............................................|.......ZARAGOZA.........../..........."+ catalunya.propietari?.color + catalunya.numSoldats + Colors.ANSI_RESET + "........@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................________________|........."+ zaragoza.propietari?.color + zaragoza.numSoldats + Colors.ANSI_RESET + ".................\\.................,oo@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,.........."+ castillaLeon.propietari.color + castillaLeon.numSoldats + Colors.ANSI_RESET + "......................................./........................./.......CATALUNYA.......@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@...............................................|.......ZARAGOZA.........../..........."+ catalunya.propietari.color + catalunya.numSoldats + Colors.ANSI_RESET + "........@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................________________|........."+ zaragoza.propietari.color + zaragoza.numSoldats + Colors.ANSI_RESET + ".................\\.................,oo@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................../\\................\\........................,/...........@@@@@@@@@@oo@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.................................../,,,|.................\\......................./.......@@@@@@@@@@@@@@@@@oo@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@................................/,,,,,\\..................\\......................|.....@@@@@@@@@@@@@@@@@@@@@oooooo@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@............................../,,,,,,,,\\...................\\...............____|.......@@@@@@@@@@@@@@@@@@@@@@@@@@ooooooo@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@............................/,,MADRIZ,,,\\...................\\............/,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--------______............/....."+ madrid.propietari?.color + madrid.numSoldats + Colors.ANSI_RESET + "........\\..................|............|,,,,,,,,@@@@@@@@@@@@@@@@ SES ILLES BALEARS @@@@o@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,%|__________-----______,,,,,,\\..................\\......../,,,,,,,.,@@@@@@@@@@@@@@@@@@@@@@@ "+ sesIllesBalears.propietari?.color + sesIllesBalears.numSoldats + Colors.ANSI_RESET + " @@@@@@@@@@@@@@@..../@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--------______............/....."+ madrid.propietari.color + madrid.numSoldats + Colors.ANSI_RESET + "........\\..................|............|,,,,,,,,@@@@@@@@@@@@@@@@ SES ILLES BALEARS @@@@o@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,%|__________-----______,,,,,,\\..................\\......../,,,,,,,.,@@@@@@@@@@@@@@@@@@@@@@@ "+ sesIllesBalears.propietari.color + sesIllesBalears.numSoldats + Colors.ANSI_RESET + " @@@@@@@@@@@@@@@..../@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,|....................----___\\.................|__,.../,,,,,,,,.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.@@@@@@@@@@@@(.\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,|_.............................................|____|,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@......#&.@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,|...........................................|,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/...........@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,|___....................................../,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.....%@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(,,,,,,,,,,,,,,,,,,,,,,,,,,,,|,...........CASTILLA LA MANCHA.......\\,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,EXTREMADURA,,,,,,,,,,|,................."+ castillaLaMancha.propietari?.color + castillaLaMancha.numSoldats + Colors.ANSI_RESET + ".....................\\,VALÈNCIA,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,"+ extremadura.propietari?.color + extremadura.numSoldats + Colors.ANSI_RESET + ",,,,,,,,,,,,,,,,,|........................................../,,,,,,"+ valencia.propietari?.color + valencia.numSoldats + Colors.ANSI_RESET + ",,,@@@@@@@@@@@oooooo...@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,EXTREMADURA,,,,,,,,,,|,................."+ castillaLaMancha.propietari.color + castillaLaMancha.numSoldats + Colors.ANSI_RESET + ".....................\\,VALÈNCIA,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,"+ extremadura.propietari.color + extremadura.numSoldats + Colors.ANSI_RESET + ",,,,,,,,,,,,,,,,,|........................................../,,,,,,"+ valencia.propietari.color + valencia.numSoldats + Colors.ANSI_RESET + ",,,@@@@@@@@@@@oooooo...@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,|...........................................\\,,,,,,,,,,,@@@@@ooo@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,,,,,,,|............................................/,,,,,,,,,,,,,,ooo@@@@@@@@@@@.@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\___________.._____________..................\\,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
@@ -166,14 +166,14 @@ class Mapa {
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-------------____/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-----------___\\...|,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,|_____..............\\,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\....MÚRCIA....,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\..."+ murcia.propietari?.color + murcia.numSoldats + Colors.ANSI_RESET + "......@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\..."+ murcia.propietari.color + murcia.numSoldats + Colors.ANSI_RESET + "......@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,ANDALUCÍA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\\.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,"+ andalucia.propietari?.color + andalucia.numSoldats + Colors.ANSI_RESET + ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,"+ andalucia.propietari.color + andalucia.numSoldats + Colors.ANSI_RESET + ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,@@@@#,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@ ISLAS CANÁRIAS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@/,,,,,,,,,,,,,,,,,,,#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
-                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@ "+ islasCanarias.propietari?.color + islasCanarias.numSoldats + Colors.ANSI_RESET + " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@@@,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
+                "@@@@@@@@@@@@@@@@@@@@@@@@@@@@ "+ islasCanarias.propietari.color + islasCanarias.numSoldats + Colors.ANSI_RESET + " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@@@@,,,,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@oo@@@@@@@,,,,,,,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@oo@@@@@@@@@@@@@&,,,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
                 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,ooo@@@@@@@@@@@@@@@@@@@,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" +
@@ -225,28 +225,32 @@ class Mapa {
     }
 
     //AQUÍ CREARÉM LA FUNCIÓ DELS TORNS DE LA FASE D'EXPLORACIÓ.
-    fun faseExploracioTorns(jugador: Jugador, provincia: String): String {
+    fun faseExploracio(jugador: Jugador, userInput: String): String {
         //SI LA PROVÍNCIA COINCIDEIX AMB ALGUNA DE LES VARIABLES DE DALT HI HA UNA SERIE DE NORMES QUE ES COMPLIRÁN
 
+        val index = userInput.toIntOrNull()
 
-        when (provincia) {
-            "MADRIZ" -> exploraProvincia(madrid, jugador)
-            "CATALUNYA" -> exploraProvincia(catalunya, jugador)
-            "ZARAGOZA" -> exploraProvincia(zaragoza, jugador)
-            "EUSKAL HERRIA" -> exploraProvincia(euskalHerria, jugador)
-            "NAVARRA" -> exploraProvincia(navarra, jugador)
-            "LA RIOJA" -> exploraProvincia(laRioja, jugador)
-            "CANTÁBRIA" -> exploraProvincia(cantabria, jugador)
-            "ASTÚRIAS" -> exploraProvincia(asturias, jugador)
-            "GALÍCIA" -> exploraProvincia(galicia, jugador)
-            "CASTILLA LEÓN" -> exploraProvincia(castillaLeon, jugador)
-            "VALÈNCIA" -> exploraProvincia(valencia, jugador)
-            "CASTILLA LA MANCHA" -> exploraProvincia(castillaLaMancha, jugador)
-            "EXTREMADURA" -> exploraProvincia(extremadura, jugador)
-            "MÚRCIA" -> exploraProvincia(murcia, jugador)
-            "ANDALUCÍA" -> exploraProvincia(andalucia, jugador)
-            "ISLAS CANÁRIAS" -> exploraProvincia(islasCanarias, jugador)
-            "SES ILLES BALEARS" -> exploraProvincia(sesIllesBalears, jugador)
+        if (index == null) {
+            println("Has de posar un número enter")
+        }
+        when (index) {
+            0 -> exploraProvincia(madrid, jugador)
+            1 -> exploraProvincia(catalunya, jugador)
+            2 -> exploraProvincia(zaragoza, jugador)
+            3 -> exploraProvincia(euskalHerria, jugador)
+            4 -> exploraProvincia(navarra, jugador)
+            5 -> exploraProvincia(laRioja, jugador)
+            6 -> exploraProvincia(cantabria, jugador)
+            7 -> exploraProvincia(asturias, jugador)
+            8 -> exploraProvincia(galicia, jugador)
+            9 -> exploraProvincia(castillaLeon, jugador)
+            10 -> exploraProvincia(valencia, jugador)
+            11 -> exploraProvincia(castillaLaMancha, jugador)
+            12 -> exploraProvincia(extremadura, jugador)
+            13 -> exploraProvincia(murcia, jugador)
+            14 -> exploraProvincia(andalucia, jugador)
+            15 -> exploraProvincia(islasCanarias, jugador)
+            16 -> exploraProvincia(sesIllesBalears, jugador)
             //SI PROVÍNCIA NO COINCIDEIX AMB CAP VARIABLE, SURT UN MISSATGE QUE DIU QUE NO EXISTEIX LA PROVÍNCIA INSERTADA
             else -> {
                 println("Aquesta província no existeix")
@@ -262,25 +266,30 @@ class Mapa {
         return asciimapMain
     }
 
-    fun faseColonitzacioTorns(jugador: Jugador, provincia: String): String {
-        when (provincia) {
-            "MADRIZ" -> colonitzaProvincia(madrid, jugador)
-            "CATALUNYA" -> colonitzaProvincia(catalunya, jugador)
-            "ZARAGOZA" -> colonitzaProvincia(zaragoza, jugador)
-            "LA RIOJA" -> colonitzaProvincia(laRioja, jugador)
-            "CASTILLA LA MANCHA" -> colonitzaProvincia(castillaLaMancha, jugador)
-            "NAVARRA" -> colonitzaProvincia(navarra, jugador)
-            "EUSKAL HERRIA" -> colonitzaProvincia(euskalHerria, jugador)
-            "CANTÁBRIA" -> colonitzaProvincia(cantabria, jugador)
-            "VALÉNCIA" -> colonitzaProvincia(valencia, jugador)
-            "CASTILLA LEÓN" -> colonitzaProvincia(castillaLeon, jugador)
-            "MÚRCIA" -> colonitzaProvincia(murcia, jugador)
-            "EXTREMADURA" -> colonitzaProvincia(extremadura, jugador)
-            "ANDALUCÍA" -> colonitzaProvincia(andalucia, jugador)
-            "SES ILLES BALEARS" -> colonitzaProvincia(sesIllesBalears, jugador)
-            "ISLAS CANÁRIAS" -> colonitzaProvincia(islasCanarias, jugador)
-            "ASTÚRIAS" -> colonitzaProvincia(asturias, jugador)
-            "GALÍCIA" -> colonitzaProvincia(galicia, jugador)
+    fun faseColonitzacio(jugador: Jugador, userInput: String): String {
+        val index = userInput.toIntOrNull()
+
+        if (index == null) {
+            println("Has de posar un número enter")
+        }
+        when (index) {
+            0-> colonitzaProvincia(madrid, jugador)
+            1 -> colonitzaProvincia(catalunya, jugador)
+            2 -> colonitzaProvincia(zaragoza, jugador)
+            3 -> colonitzaProvincia(laRioja, jugador)
+            4 -> colonitzaProvincia(castillaLaMancha, jugador)
+            5 -> colonitzaProvincia(navarra, jugador)
+            6 -> colonitzaProvincia(euskalHerria, jugador)
+            7 -> colonitzaProvincia(cantabria, jugador)
+            8 -> colonitzaProvincia(valencia, jugador)
+            9 -> colonitzaProvincia(castillaLeon, jugador)
+            10 -> colonitzaProvincia(murcia, jugador)
+            11 -> colonitzaProvincia(extremadura, jugador)
+            12 -> colonitzaProvincia(andalucia, jugador)
+            13 -> colonitzaProvincia(sesIllesBalears, jugador)
+            15 -> colonitzaProvincia(islasCanarias, jugador)
+            16 -> colonitzaProvincia(asturias, jugador)
+            17 -> colonitzaProvincia(galicia, jugador)
             else -> {
                 println("Aquesta província no existeix")
                 Thread.sleep(4000)
