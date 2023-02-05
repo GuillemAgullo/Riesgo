@@ -9,6 +9,7 @@ import java.io.PrintStream
 import java.nio.charset.StandardCharsets
 
 class Game {
+
     fun joc() {
 
         // Set the charset to UTF 8 to the Standard Output
@@ -100,13 +101,7 @@ class Game {
 
             print("\n")
             val torns = TurnsFunctions()
-            torns.tornsExploracio()
-            torns.tornsColonitzacio()
-
-
-
-
-
+            torns.tornsDeTot()
         }
     }
 }

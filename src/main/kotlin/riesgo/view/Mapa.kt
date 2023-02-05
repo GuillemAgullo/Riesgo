@@ -3,7 +3,6 @@ package riesgo.view
 import riesgo.Colors
 import riesgo.model.Jugador
 import riesgo.model.Provincia
-import java.lang.IllegalStateException
 
 class Mapa {
     //DINTRE DE LA CLASSE MAPA I DE LA VARIABLE PROVINCIES(QUE ES DE "MAPA"), INTRODUÏM TOTES LES PROVÍNCIES QUE TINGUI EL TERRENY UTILITZANT LA CLASSE PROVÍNCIA
@@ -27,104 +26,25 @@ class Mapa {
             Provincia("Ses_illes_balears")
     )
 
-    private val madrid = provincies.find { it.nom == "Madrid" } ?: throw IllegalStateException("provincia no trobada")
-    private val catalunya = provincies.find { it.nom == "Catalunya" } ?: throw IllegalStateException("provincia no trobada")
-    private val zaragoza = provincies.find { it.nom == "Zaragoza" } ?: throw IllegalStateException("provincia no trobada")
-    private val euskalHerria = provincies.find { it.nom == "Euskal_Herria" } ?: throw IllegalStateException("provincia no trobada")
-    private val navarra = provincies.find { it.nom == "Navarra" } ?: throw IllegalStateException("provincia no trobada")
-    private val laRioja = provincies.find { it.nom == "La_Rioja" } ?: throw IllegalStateException("provincia no trobada")
-    private val cantabria = provincies.find { it.nom == "Cantábria" } ?: throw IllegalStateException("provincia no trobada")
-    private val asturias = provincies.find { it.nom == "Astúrias" } ?: throw IllegalStateException("provincia no trobada")
-    private val galicia = provincies.find { it.nom == "Galícia" } ?: throw IllegalStateException("provincia no trobada")
-    private val castillaLeon = provincies.find { it.nom == "Castilla_León" } ?: throw IllegalStateException("provincia no trobada")
-    private val valencia = provincies.find { it.nom == "València" } ?: throw IllegalStateException("provincia no trobada")
-    private val castillaLaMancha = provincies.find { it.nom == "Castilla_la_mancha" } ?: throw IllegalStateException("provincia no trobada")
-    private val extremadura = provincies.find { it.nom == "Extremadura" } ?: throw IllegalStateException("provincia no trobada")
-    private val murcia = provincies.find { it.nom == "Múrcia" } ?: throw IllegalStateException("provincia no trobada")
-    private val andalucia = provincies.find { it.nom == "Andalucía" } ?: throw IllegalStateException("provincia no trobada")
-    private val islasCanarias = provincies.find { it.nom == "Islas_Canarias" } ?: throw IllegalStateException("provincia no trobada")
-    private val sesIllesBalears = provincies.find { it.nom == "Ses_illes_balears" } ?: throw IllegalStateException("provincia no trobada")
 
-    //SEGUIDAMENT, INICIEM UNA FUNCIÓ QUE ES DIGUI INITADJECENTS
-    init {
-        initAdjacents()
-    }
+     val madrid = provincies.find { it.nom == "Madrid" } ?: throw IllegalStateException("provincia no trobada")
+     val catalunya = provincies.find { it.nom == "Catalunya" } ?: throw IllegalStateException("provincia no trobada")
+     val zaragoza = provincies.find { it.nom == "Zaragoza" } ?: throw IllegalStateException("provincia no trobada")
+     val euskalHerria = provincies.find { it.nom == "Euskal_Herria" } ?: throw IllegalStateException("provincia no trobada")
+     val navarra = provincies.find { it.nom == "Navarra" } ?: throw IllegalStateException("provincia no trobada")
+     val laRioja = provincies.find { it.nom == "La_Rioja" } ?: throw IllegalStateException("provincia no trobada")
+     val cantabria = provincies.find { it.nom == "Cantábria" } ?: throw IllegalStateException("provincia no trobada")
+     val asturias = provincies.find { it.nom == "Astúrias" } ?: throw IllegalStateException("provincia no trobada")
+     val galicia = provincies.find { it.nom == "Galícia" } ?: throw IllegalStateException("provincia no trobada")
+     val castillaLeon = provincies.find { it.nom == "Castilla_León" } ?: throw IllegalStateException("provincia no trobada")
+     val valencia = provincies.find { it.nom == "València" } ?: throw IllegalStateException("provincia no trobada")
+     val castillaLaMancha = provincies.find { it.nom == "Castilla_la_mancha" } ?: throw IllegalStateException("provincia no trobada")
+     val extremadura = provincies.find { it.nom == "Extremadura" } ?: throw IllegalStateException("provincia no trobada")
+     val murcia = provincies.find { it.nom == "Múrcia" } ?: throw IllegalStateException("provincia no trobada")
+     val andalucia = provincies.find { it.nom == "Andalucía" } ?: throw IllegalStateException("provincia no trobada")
+     val islasCanarias = provincies.find { it.nom == "Islas_Canarias" } ?: throw IllegalStateException("provincia no trobada")
+     val sesIllesBalears = provincies.find { it.nom == "Ses_illes_balears" } ?: throw IllegalStateException("provincia no trobada")
 
-    //DINTRE D'AQUESTA, CREEM VARIABLES QUE CONTINGUIN EL NOM DE LES COMUNITATS AUTONOMES DINTRE DE LA CLASSE PROVÍNCIES. AIXÒ HO FEM AMB LA FUNCIÓ FIND, QUE ITERA DINTRE DE PROVINCIES FINS QUE TROVA EL NOM INDICAT.
-    private fun initAdjacents() {
-
-
-//AQUÍ AFEGIM ELS VEÏNS:
-
-        //DE MADRID
-        madrid.veins.add(castillaLeon)
-        madrid.veins.add(castillaLaMancha)
-        //DE EXTREMADURA
-        extremadura.veins.add(castillaLeon)
-        extremadura.veins.add(castillaLaMancha)
-        extremadura.veins.add(andalucia)
-        //DE CATALUNYA
-        catalunya.veins.add(zaragoza)
-        catalunya.veins.add(valencia)
-        catalunya.veins.add(sesIllesBalears)
-        //DE GALÍCIA
-        galicia.veins.add(asturias)
-        galicia.veins.add(castillaLeon)
-        //DE CANTÁBRIA
-        cantabria.veins.add(euskalHerria)
-        cantabria.veins.add(asturias)
-        cantabria.veins.add(castillaLeon)
-        //DE EUSKAL HERRIA
-        euskalHerria.veins.add(cantabria)
-        euskalHerria.veins.add(navarra)
-        euskalHerria.veins.add(laRioja)
-        euskalHerria.veins.add(castillaLeon)
-        //DE ZARAGOZA
-        zaragoza.veins.add(catalunya)
-        zaragoza.veins.add(navarra)
-        zaragoza.veins.add(laRioja)
-        zaragoza.veins.add(valencia)
-        zaragoza.veins.add(castillaLeon)
-        zaragoza.veins.add(castillaLaMancha)
-        //DE NAVARRA
-        navarra.veins.add(euskalHerria)
-        navarra.veins.add(laRioja)
-        navarra.veins.add(zaragoza)
-        //DE LA RIOJA
-        laRioja.veins.add(castillaLeon)
-        laRioja.veins.add(zaragoza)
-        laRioja.veins.add(navarra)
-        laRioja.veins.add(euskalHerria)
-        //DE ASTURIES
-        asturias.veins.add(cantabria)
-        asturias.veins.add(castillaLeon)
-        asturias.veins.add(galicia)
-        //DE CASTILLA I LEÓN
-        castillaLeon.veins.add(galicia)
-        castillaLeon.veins.add(asturias)
-        castillaLeon.veins.add(cantabria)
-        castillaLeon.veins.add(euskalHerria)
-        castillaLeon.veins.add(laRioja)
-        castillaLeon.veins.add(zaragoza)
-        castillaLeon.veins.add(madrid)
-        castillaLeon.veins.add(extremadura)
-        //DE VALENCIA
-        valencia.veins.add(catalunya)
-        valencia.veins.add(zaragoza)
-        valencia.veins.add(castillaLaMancha)
-        valencia.veins.add(murcia)
-        valencia.veins.add(sesIllesBalears)
-        //DE MURCIA
-        murcia.veins.add(andalucia)
-        murcia.veins.add(valencia)
-        murcia.veins.add(castillaLaMancha)
-        //DE ANDALUCIA
-        andalucia.veins.add(murcia)
-        andalucia.veins.add(castillaLaMancha)
-        andalucia.veins.add(extremadura)
-        andalucia.veins.add(islasCanarias)
-
-    }
 
     //IMPRIMIM EL MAPA PER PRIMERA VEGADA AMB ELS SOLDATS (QUE TOTS SÓN 0).
     val asciimapMain: String
@@ -214,6 +134,7 @@ class Mapa {
             print("Aquesta província no es de la  teva posessió.")
             Thread.sleep(4000)
         }
+
     }
 
     private fun checkSoldatsProvincia(): Int {
@@ -273,23 +194,23 @@ class Mapa {
             println("Has de posar un número enter")
         }
         when (index) {
-            0-> colonitzaProvincia(madrid, jugador)
+            0 -> colonitzaProvincia(madrid, jugador)
             1 -> colonitzaProvincia(catalunya, jugador)
             2 -> colonitzaProvincia(zaragoza, jugador)
-            3 -> colonitzaProvincia(laRioja, jugador)
-            4 -> colonitzaProvincia(castillaLaMancha, jugador)
-            5 -> colonitzaProvincia(navarra, jugador)
-            6 -> colonitzaProvincia(euskalHerria, jugador)
-            7 -> colonitzaProvincia(cantabria, jugador)
-            8 -> colonitzaProvincia(valencia, jugador)
+            3 -> colonitzaProvincia(euskalHerria, jugador)
+            4 -> colonitzaProvincia(navarra, jugador)
+            5 -> colonitzaProvincia(laRioja, jugador)
+            6 -> colonitzaProvincia(cantabria, jugador)
+            7 -> colonitzaProvincia(asturias, jugador)
+            8 -> colonitzaProvincia(galicia, jugador)
             9 -> colonitzaProvincia(castillaLeon, jugador)
-            10 -> colonitzaProvincia(murcia, jugador)
-            11 -> colonitzaProvincia(extremadura, jugador)
-            12 -> colonitzaProvincia(andalucia, jugador)
-            13 -> colonitzaProvincia(sesIllesBalears, jugador)
+            10 -> colonitzaProvincia(valencia, jugador)
+            11 -> colonitzaProvincia(castillaLaMancha, jugador)
+            12 -> colonitzaProvincia(extremadura, jugador)
+            13 -> colonitzaProvincia(murcia, jugador)
+            14 -> colonitzaProvincia(andalucia, jugador)
             15 -> colonitzaProvincia(islasCanarias, jugador)
-            16 -> colonitzaProvincia(asturias, jugador)
-            17 -> colonitzaProvincia(galicia, jugador)
+            16 -> colonitzaProvincia(sesIllesBalears, jugador)
             else -> {
                 println("Aquesta província no existeix")
                 Thread.sleep(4000)

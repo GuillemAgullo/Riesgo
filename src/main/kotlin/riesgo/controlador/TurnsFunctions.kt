@@ -1,13 +1,31 @@
 package riesgo.controlador
 
 import riesgo.Colors
+import riesgo.model.FaseAtac
 import riesgo.view.Jugador1
 import riesgo.view.Jugador2
 import riesgo.view.textoFlama
 import riesgo.view.Mapa
 
 class TurnsFunctions {
-    fun tornsExploracio() {
+    private fun guanyador(mapa: Mapa): Int {
+        var guanyadorJ1 = 0
+        var guanyadorJ2 = 0
+        for (i in mapa.provincies) {
+            if (i.propietari == Jugador1) {
+                guanyadorJ1 += 1
+            } else if (i.propietari == Jugador2) {
+                guanyadorJ2 += 1
+            }
+        }
+        return if (guanyadorJ1 == 17) {
+            1
+        } else if (guanyadorJ2 == 17) {
+            2
+        } else 0
+    }
+
+    fun tornsDeTot() {
         val mapa = Mapa()
         //INICIEM LA FASE D'EXPLORACIÓ (1)
         textoFlama("Fase 1: Exploració")
@@ -60,10 +78,7 @@ class TurnsFunctions {
                 continue
             }
         }
-    }
 
-    fun tornsColonitzacio() {
-        val mapa = Mapa()
 
         //INDIQUEM QUE INICIEM LA FASE 2: COLONITZACIÓ
         textoFlama("Fase 2: Colonització")
@@ -100,9 +115,9 @@ class TurnsFunctions {
                 println("Quina povíncia vols colonitzar?(recorda que has d'escriure-la igual que com està al mapa.\n")
 
                 mapa.provincies.forEachIndexed { index, provincia ->
-                   if (provincia.propietari == Jugador2) {
-                       println("$index - ${provincia.nom}")
-                   }
+                    if (provincia.propietari == Jugador2) {
+                        println("$index - ${provincia.nom}")
+                    }
                 }
                 val mapaupdatedColonitzacioJ2 = mapa.faseColonitzacio(Jugador2, readln())
                 println(mapaupdatedColonitzacioJ2)
@@ -112,7 +127,80 @@ class TurnsFunctions {
                     continue
                 }
             }
+        }
+        val faseAtacar = FaseAtac()
+        var switchFaseAtac = true
+        textoFlama("Fase 3: Atacar! que soi epañoleh!")
+        var tornsparells = 2
+        var decisio: Int
+        while (switchFaseAtac) {
+            decisio = guanyador(mapa)
+            if (decisio == 1) {
+                switchFaseAtac = false
 
+            } else if (decisio == 2) {
+                switchFaseAtac = false
+            }
+
+            if (tornsparells % 2 == 0) {
+                //Torn del  jugador 1 a atacar
+                println(mapa.asciimapMain)
+                println("\nTorn de " + Jugador1.color + Jugador1.nom + Colors.ANSI_RESET)
+                println("Vols atacar o traspassar soldats? 1 - Atacar, 2 - Traspassar: \n")
+                val eleccio = readln().toIntOrNull() ?: 1
+                if (eleccio == 1) {
+                    println("Provincia atacant:\n")
+                    mapa.provincies.forEachIndexed { index, provincia ->
+                        if (provincia.propietari == Jugador1) {
+                            println("$index - ${provincia.nom}")
+                        }
+                    }
+                    val provinciaAtacJ1 = readln()
+
+                    println("Ara una provincia que vulguis atacar:\n")
+                    mapa.provincies.forEachIndexed { index, provincia ->
+                        if (provincia.propietari == Jugador2) {
+                            println("$index - ${provincia.nom}")
+                        }
+                    }
+                    val provinciaAAtacarJ1 = readln()
+                    faseAtacar.decidimGuanyador(provinciaAtacJ1, provinciaAAtacarJ1, mapa)
+                    tornsparells += 1
+                }else if (eleccio == 2){
+                    faseAtacar.volstraspassarSoldats(Jugador1, mapa)
+                    tornsparells += 1
+                }
+            } else {
+                //Torn del jugador 2 de atacar
+
+                println(mapa.asciimapMain)
+                println("\nTorn de " + Jugador2.color + Jugador2.nom + Colors.ANSI_RESET)
+                println("Vols atacar o traspassar soldats? 1 - Atacar, 2 - Traspassar: \n")
+                val eleccio = readln().toIntOrNull() ?: 1
+                if (eleccio == 1) {
+                    println("Provincia atacant:\n")
+
+                    mapa.provincies.forEachIndexed { index, provincia ->
+                        if (provincia.propietari == Jugador2) {
+                            println("$index - ${provincia.nom}")
+                        }
+                    }
+                    val provinciaAtacJ2 = readln()
+
+                    println("Ara una provincia que vulguis atacar:\n")
+                    mapa.provincies.forEachIndexed { index, provincia ->
+                        if (provincia.propietari == Jugador1) {
+                            println("$index - ${provincia.nom}")
+                        }
+                    }
+                    val provinciaAtacadaJ2 = readln()
+                    faseAtacar.decidimGuanyador(provinciaAtacJ2, provinciaAtacadaJ2, mapa)
+                    tornsparells += 1
+                }else if (eleccio == 2){
+                    faseAtacar.volstraspassarSoldats(Jugador2, mapa)
+                    tornsparells += 1
+                }
+            }
         }
     }
 }

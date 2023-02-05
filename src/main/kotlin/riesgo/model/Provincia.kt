@@ -2,6 +2,7 @@ package riesgo.model
 
 import riesgo.view.Jugador0
 
+
 //AQUESTA CLASSE CONTÉ LES VARIABLES QUE TÉ CADA PROVÍNCIA.
 
 class Provincia(
