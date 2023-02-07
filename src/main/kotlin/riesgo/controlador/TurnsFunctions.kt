@@ -2,10 +2,7 @@ package riesgo.controlador
 
 import riesgo.Colors
 import riesgo.model.FaseAtac
-import riesgo.view.Jugador1
-import riesgo.view.Jugador2
-import riesgo.view.textoFlama
-import riesgo.view.Mapa
+import riesgo.view.*
 
 class TurnsFunctions {
     private fun guanyador(mapa: Mapa): Int {
@@ -133,13 +130,16 @@ class TurnsFunctions {
         textoFlama("Fase 3: Atacar! que soi epañoleh!")
         var tornsparells = 2
         var decisio: Int
+        var actualguanyador = Jugador0
         while (switchFaseAtac) {
             decisio = guanyador(mapa)
             if (decisio == 1) {
                 switchFaseAtac = false
+                actualguanyador = Jugador1
 
             } else if (decisio == 2) {
                 switchFaseAtac = false
+                actualguanyador = Jugador2
             }
 
             if (tornsparells % 2 == 0) {
@@ -202,5 +202,6 @@ class TurnsFunctions {
                 }
             }
         }
+        println("Ha guanyat: " + actualguanyador.color + actualguanyador.nom + Colors.ANSI_RESET + ". Facilitats!!!")
     }
 }
